@@ -1,0 +1,653 @@
+h1 {
+  font-size: 3.125rem;
+  color: rgb(146, 146, 146);
+  font-weight: 500;
+  line-height: 100%;
+  letter-spacing: -0.125rem;
+  margin: 0;
+  font-family: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
+}
+
+p {
+  margin: 0;
+  color: rgb(146, 146, 146);
+}
+
+main {
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: inherit;
+  background-color: #000000;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100%;
+  justify-content: center;
+  align-items: center;
+  background-image: url("/assets/Apresentacao.png");
+  background-size: cover;
+  background-position: right;
+  background-repeat: repeat;
+  border-radius: 8px;
+  clip-path: inset(50% 50% 50% 50%);
+  animation: revealContent 1.5s ease-out forwards,
+    backgroundMove 120s ease-in-out infinite;
+}
+
+
+.dontover {
+  max-width: 100vw;
+  max-height: 100vh;
+  box-sizing: border-box; /* Inclui padding e border no cálculo do tamanho */
+  overflow: hidden; /* Evita transbordamento */
+}
+
+
+#typing-effect {
+  font-size: 3.5rem; /* Tamanho maior para o h1 */
+  padding: 10px; /* Espaçamento vertical */
+  color: rgb(146, 146, 146);
+  font-weight: 500;
+  white-space: nowrap; /* Para evitar que o texto quebre a linha */
+  overflow: hidden; /* Para esconder o texto que não foi digitado */
+  border-right: 2px solid rgb(146, 146, 146); /* Simula o cursor */
+  animation: blink 0.7s step-end infinite; /* Efeito de piscar */
+}
+
+.welcome-text,
+.role-text {
+  font-size: 2rem; /* Tamanho da fonte para os parágrafos */
+  margin: 10px 0; /* Espaçamento vertical entre os parágrafos */
+  opacity: 0; /* Começa invisível */
+  transform: translateY(20px); /* Começa deslocado */
+  transition: opacity 0.5s ease, transform 0.5s ease; /* Transição suave */
+}
+
+.welcome-text {
+  margin-left: 15px;
+  opacity: 1; /* Torna visível */
+  transform: translateY(0); /* Move para a posição original */
+}
+
+.role-text {
+  opacity: 1; /* Torna visível */
+  transform: translateY(0); /* Move para a posição original */
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem; /* Espaçamento entre as competências */
+}
+
+.skills span, .close {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+}
+
+.skills svg {
+  width: 60px; /* Define a largura do ícone */
+  height: 60px; /* Define a altura do ícone */
+  fill: rgb(146, 146, 146); /* Define a cor do ícone */
+  margin-right: 15px; /* Adiciona espaço à direita do ícone */
+  transition: transform 0.3s ease, fill 0.3s ease;
+}
+
+.skills svg:hover {
+  cursor: pointer;
+  transform: scale(1.2); /* Aumenta o tamanho do SVG ao passar o mouse */
+  fill: #007bff; /* Muda a cor ao passar o mouse */
+}
+
+.controlDisplay {
+  align-self: center;
+  justify-self: flex-end;
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  margin-bottom: 5rem;
+}
+
+.controlDisplay span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: white;
+  margin: 0 5px;
+  cursor: pointer;
+  opacity: 0.5; /* Opacidade padrão */
+}
+
+.controlDisplay span.active {
+  background: white; /* Bolinha ativa */
+  opacity: 1; /* Totalmente visível */
+}
+
+.display1 {
+  display: flex;
+  flex-direction: column; /* Coloca os elementos em coluna */
+  align-items: center; /* Centraliza os itens horizontalmente */
+  text-align: center; /* Centraliza o texto */
+  margin: 20px; /* Margem ao redor do container */
+  padding: 20px; /* Espaçamento interno */
+  color: rgb(146, 146, 146); /* Cor do texto */
+}
+
+.display2 {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(0, 0, 0, 0.4);
+  border-radius: 10px;
+  padding: 15px;
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 7px;
+  }
+  p {
+    font-size: 1.5rem;
+    margin-bottom: 3px;
+  }
+}
+
+.display3 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+    justify-content: center;
+    padding: 10%;
+  h1 {
+    margin-bottom: 23px;
+  }
+  p {
+    margin-bottom: 3px;
+    font-size: large;
+  }
+}
+
+.display4 {
+  position: fixed; /* Permite ocupar toda a tela */
+  top: 0; /* Inicia no topo da tela */
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white; /* Cor de fundo */
+  transition: transform 1s ease-in-out, opacity 0.5s ease-in-out; /* Animação suave */
+  z-index: 999; /* Fica acima de outros conteúdos */
+  transform: translateY(100%); /* Inicia fora da tela (para baixo) */
+  opacity: 0; /* Inicia invisível */
+  visibility: hidden; /* Inicia invisível */
+}
+
+.displayContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+  position: relative;
+}
+
+.carousel-container {
+  width: 100%;
+  max-width: 60%; /* Limita a largura máxima */
+  margin: auto auto; /* Centraliza o carrossel na tela */
+  height: 400px;
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel {
+  display: flex;
+  flex-direction: row;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+  min-width: 80%; /* Garante que cada item ocupe 100% da largura da tela */
+  height: 400px;
+  background-color: gray;
+  box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.carousel-item h1 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #046db3;
+}
+
+.carousel-item p {
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.carousel-item:hover {
+  transform: scale(1.05);
+  box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Botões laterais de navegação */
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 15px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 1;
+  font-size: 1.5rem;
+}
+
+.carousel-button:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.carousel-button.left {
+  left: 10px;
+}
+
+.carousel-button.right {
+  right: 10px;
+}
+
+button:disabled {
+  background-color: #b0c4de;
+  cursor: not-allowed;
+}
+
+.display4.visible {
+  opacity: 1; /* Torna visível */
+  visibility: visible; /* Define como visível */
+  transform: translateY(0); /* Move para cima ocupando toda a tela */
+}
+
+.display4.hidden {
+  opacity: 0; /* Torna invisível */
+  visibility: hidden; /* Mantém invisível após a animação */
+  transform: translateY(100%); /* Fica fora da tela quando oculto */
+}
+
+/* Adiciona uma classe para transição de saída */
+.display4.hiding {
+  opacity: 1; /* Torna visível */
+  visibility: visible;
+  transform: translateY(100%); /* Volta para baixo */
+}
+
+/* Adiciona uma classe para transição de saída */
+.display4.hiding {
+  transform: translateY(100%); /* Volta para baixo */
+}
+
+/* Estilo para os links e skills */
+.links.skills .close {
+  display: flex;
+  align-items: center; /* Centraliza os itens verticalmente */
+  margin-top: 20px; /* Espaçamento acima da linha horizontal */
+}
+
+.horizontalLine {
+  flex-grow: 1; /* Faz a linha horizontal ocupar espaço disponível */
+  height: 1px; /* Espessura da linha */
+  background-color: rgb(146, 146, 146); /* Cor da linha */
+  margin: 0 10px; /* Espaçamento entre a linha e os textos */
+}
+
+.links.skills span, .close {
+  font-size: 1rem; /* Tamanho da fonte */
+  margin: 20px 10px; /* Espaçamento lateral */
+  padding: 10px 20px; /* Aumenta a área clicável em torno do texto */
+  cursor: pointer; /* Indica que são clicáveis */
+  transition: color 0.3s, background-color 0.3s; /* Efeito de transição para hover */
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.1
+  ); /* Adiciona um fundo para melhor visualização */
+  border-radius: 5px; /* Bordas arredondadas */
+  display: inline-block; /* Torna o `span` um bloco com área definida */
+}
+
+.links.skills span:hover, .close:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* Muda o fundo no hover */
+  color: #fff; /* Altera a cor do texto no hover */
+}
+
+.display1,
+.display2,
+.display3 {
+  width: 60%;
+  opacity: 0;
+  visibility: hidden; /* Esconde o elemento completamente */
+  position: absolute;
+  transition: opacity 1s ease, visibility 0s 1s; /* A transição de visibilidade espera até que a opacidade termine */
+}
+
+.display1.visible,
+.display2.visible,
+.display3.visible {
+  width: 60%;
+  opacity: 1;
+  visibility: visible; /* Torna o elemento visível */
+  transition: opacity 1s ease, visibility 0s; /* Remove o delay da visibilidade quando o display fica visível */
+}
+
+@media (min-width: 1000px) { 
+  .display2, .display2.visible {
+    max-width: 60%;
+  }
+
+ .display3 .display3.visible  {
+  max-width: 40%;
+ }
+
+}
+
+@media (max-width: 720px) {
+  .skills svg {
+    width: 50px; /* Define a largura do ícone */
+    height: 50px; /* Define a altura do ícone */
+  }
+
+  .display1,
+  .display2,
+  .display3 {
+    width: 80%; /* Aumenta o width para 80% em telas menores */
+  }
+
+  .display1.visible,
+  .display2.visible,
+  .display3.visible {
+    width: 80%; /* Aumenta o width para 80% quando visível */
+  }
+
+  
+}
+
+@media (max-width: 525px) {
+  .skills svg {
+    width: 40px; /* Define a largura do ícone */
+    height: 40px; /* Define a altura do ícone */
+  }
+
+  .display1,
+  .display2,
+  .display3,
+  .display4 {
+    width: 100%; /* Aumenta o width para 80% em telas menores */
+  }
+
+  .display1.visible,
+  .display2.visible,
+  .display3.visible
+  .display4.visible
+  .display4.hiding {
+    width: 100%; /* Aumenta o width para 80% quando visível */
+  }
+
+  .display2, .display2.visible {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 430px) {
+  .skills svg {
+    width: 35px; /* Define a largura do ícone */
+    height: 35px; /* Define a altura do ícone */
+  }
+
+  .display1,
+  .display2,
+  .display3,
+  .display4 {
+    width: 100%; /* Aumenta o width para 80% em telas menores */
+    h1 {
+      font-size: 2.5rem;
+    }
+    p {
+      font-size: 1.5rem;
+    }
+    #typing-effect {
+      font-size: 2.5rem;
+    }
+  }
+
+  .display1.visible,
+  .display2.visible,
+  .display3.visible
+  .display4.visible
+  .display4.hiding {
+    width: 100%; /* Aumenta o width para 80% quando visível */
+    h1 {
+      font-size: 2.5rem;
+    }
+    p {
+      font-size: 1.5rem;
+    }
+    #typing-effect {
+      font-size: 2.5rem;
+    }
+  }
+
+  .links.skills span, .close {
+    font-size: 0.875rem; /* Reduz o tamanho da fonte */
+    padding: 8px 16px; /* Reduz o padding */
+  }
+
+  .display2, .display2.visible {
+    h1 {
+      font-size: 2.2rem;
+    }
+    p {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+@media (max-width: 360px) {
+  .display1,
+  .display2,
+  .display3,
+  .display4 {
+    width: 100%; /* Aumenta o width para 80% em telas menores */
+    h1 {
+      font-size: 2.5rem;
+    }
+    p {
+      font-size: 1.5rem;
+    }
+    #typing-effect {
+      font-size: 2.5rem;
+    }
+  }
+
+  .display1.visible,
+  .display2.visible,
+  .display3.visible
+  .display4.visible
+  .display4.hiding {
+    width: 100%; /* Aumenta o width para 80% quando visível */
+    h1 {
+      font-size: 2.5rem;
+    }
+    p {
+      font-size: 1.5rem;
+    }
+    #typing-effect {
+      font-size: 2.5rem;
+    }
+  }
+
+  .links.skills span, .close {
+    font-size: 0.695rem; /* Reduz o tamanho da fonte */
+    padding: 6px 14px; /* Reduz o padding */
+  }
+
+  .display2, .display2.visible {
+    h1 {
+      font-size: 2.0rem;
+    }
+    p {
+      font-size: 1.0rem;
+    }
+  }
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.waving-hand {
+  display: inline-block;
+  animation: wave 2s infinite;
+  transform-origin: 70% 70%; /* Ponto de origem da animação */
+}
+
+@keyframes wave {
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(14deg);
+  }
+  20% {
+    transform: rotate(-8deg);
+  }
+  30% {
+    transform: rotate(14deg);
+  }
+  40% {
+    transform: rotate(-4deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  60% {
+    transform: rotate(0deg);
+  } /* Volta à posição inicial */
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent; /* Faz o cursor piscar */
+  }
+}
+
+@keyframes expandBox {
+  0% {
+    transform: scale(0); /* Começa invisível no centro */
+  }
+  50% {
+    transform: scale(0.5); /* Crescendo a 50% */
+  }
+  100% {
+    transform: scale(1); /* Tamanho completo */
+  }
+}
+
+@keyframes revealContent {
+  0% {
+    clip-path: inset(
+      50% 50% 50% 50%
+    ); /* O conteúdo está completamente oculto */
+  }
+  100% {
+    clip-path: inset(
+      0% 0% 0% 0%
+    ); /* O quadrado se expande para revelar todo o conteúdo */
+  }
+}
+
+@keyframes backgroundMove {
+  0% {
+    background-position: 0% center; /* Posição inicial */
+  }
+  50% {
+    background-position: 100% center; /* Posição intermediária */
+  }
+  100% {
+    background-position: 0% center; /* Retorna à posição inicial */
+  }
+}
+
+
+@mixin white-gradient {
+	background: linear-gradient(to right,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+}
+
+$animationSpeed: 40s;
+
+// Animation
+@keyframes scroll {
+	0% { transform: translateX(0); }
+	100% { transform: translateX(calc(-250px * 7))}
+}
+
+
+// Styling
+.slider {
+	background: white;
+	box-shadow: 0 10px 20px -5px rgba(0, 0, 0, .125);
+	height: 100px;
+	margin: auto;
+	overflow:hidden;
+	position: relative;
+	width: 960px;
+	
+	&::before,
+	&::after {
+		@include white-gradient;
+		content: "";
+		height: 100px;
+		position: absolute;
+		width: 200px;
+		z-index: 2;
+	}
+	
+	&::after {
+		right: 0;
+		top: 0;
+		transform: rotateZ(180deg);
+	}
+
+	&::before {
+		left: 0;
+		top: 0;
+	}
+	
+	.slide-track {
+		animation: scroll $animationSpeed linear infinite;
+		display: flex;
+		width: calc(250px * 14);
+	}
+	
+	.slide {
+		height: 100px;
+		width: 500px;
+	}
+}
