@@ -11,18 +11,6 @@ main {
     height: 100%;
 }
 
-@keyframes backgroundMove {
-    0% {
-      background-position: 0% center; /* Posição inicial */
-    }
-    50% {
-      background-position: 100% center; /* Posição intermediária */
-    }
-    100% {
-      background-position: 0% center; /* Retorna à posição inicial */
-    }
-  }
-
   ::ng-deep {
     @keyframes backgroundMove {
     0% {

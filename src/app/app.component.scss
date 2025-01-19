@@ -10,6 +10,28 @@ h1 {
     "Segoe UI Symbol";
 }
 
+.closeDisplay {
+  color: rgb(146, 146, 146); /* Cor inicial do texto */
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 100%;
+  font-family: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
+  border-radius: 50%; /* Bordas totalmente arredondadas */
+  position: absolute;
+  top: 2%;
+  right: 2%;
+  transition: transform 0.3s ease, color 0.3s ease; /* Adiciona transições para tamanho e cor */
+  cursor: pointer; /* Mostra que é clicável */
+  transform: scale(1); /* Estado padrão */
+}
+
+.closeDisplay:hover {
+  transform: scale(1.3); /* Aumenta ligeiramente o tamanho */
+  color: #ff4d4f; /* Muda a cor do texto ao passar o mouse */
+}
+
 p {
   margin: 0;
   color: rgb(146, 146, 146);
@@ -42,14 +64,12 @@ main {
     backgroundMove 120s ease-in-out infinite;
 }
 
-
 .dontover {
   max-width: 100vw;
   max-height: 100vh;
   box-sizing: border-box; /* Inclui padding e border no cálculo do tamanho */
   overflow: hidden; /* Evita transbordamento */
 }
-
 
 #typing-effect {
   font-size: 3.5rem; /* Tamanho maior para o h1 */
@@ -88,7 +108,8 @@ main {
   gap: 1rem; /* Espaçamento entre as competências */
 }
 
-.skills span, .close {
+.skills span,
+.close {
   background-color: rgba(255, 255, 255, 0.2);
   color: white;
   padding: 0.5rem 1rem;
@@ -163,8 +184,8 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-    justify-content: center;
-    padding: 10%;
+  justify-content: center;
+  padding: 10%;
   h1 {
     margin-bottom: 23px;
   }
@@ -198,78 +219,78 @@ main {
   position: relative;
 }
 
-.carousel-container {
-  width: 100%;
-  max-width: 60%; /* Limita a largura máxima */
-  margin: auto auto; /* Centraliza o carrossel na tela */
-  height: 400px;
-  overflow: hidden;
-  position: relative;
-}
+// .carousel-container {
+//   width: 100%;
+//   max-width: 60%; /* Limita a largura máxima */
+//   margin: auto auto; /* Centraliza o carrossel na tela */
+//   height: 400px;
+//   overflow: hidden;
+//   position: relative;
+// }
 
-.carousel {
-  display: flex;
-  flex-direction: row;
-  transition: transform 0.5s ease-in-out;
-}
+// .carousel {
+//   display: flex;
+//   flex-direction: row;
+//   transition: transform 0.5s ease-in-out;
+// }
 
-.carousel-item {
-  min-width: 80%; /* Garante que cada item ocupe 100% da largura da tela */
-  height: 400px;
-  background-color: gray;
-  box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.4);
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 20px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+// .carousel-item {
+//   min-width: 80%; /* Garante que cada item ocupe 100% da largura da tela */
+//   height: 400px;
+//   background-color: gray;
+//   box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.4);
+//   border-radius: 10px;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   align-items: center;
+//   text-align: center;
+//   padding: 20px;
+//   transition: transform 0.3s ease, box-shadow 0.3s ease;
+// }
 
-.carousel-item h1 {
-  font-size: 2rem;
-  margin-bottom: 15px;
-  color: #046db3;
-}
+// .carousel-item h1 {
+//   font-size: 2rem;
+//   margin-bottom: 15px;
+//   color: #046db3;
+// }
 
-.carousel-item p {
-  font-size: 1.2rem;
-  color: #333;
-}
+// .carousel-item p {
+//   font-size: 1.2rem;
+//   color: #333;
+// }
 
-.carousel-item:hover {
-  transform: scale(1.05);
-  box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.2);
-}
+// .carousel-item:hover {
+//   transform: scale(1.05);
+//   box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.2);
+// }
 
-/* Botões laterais de navegação */
-.carousel-button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  border: none;
-  padding: 15px;
-  cursor: pointer;
-  border-radius: 50%;
-  z-index: 1;
-  font-size: 1.5rem;
-}
+// /* Botões laterais de navegação */
+// .carousel-button {
+//   position: absolute;
+//   top: 50%;
+//   transform: translateY(-50%);
+//   background-color: rgba(0, 0, 0, 0.5);
+//   color: white;
+//   border: none;
+//   padding: 15px;
+//   cursor: pointer;
+//   border-radius: 50%;
+//   z-index: 1;
+//   font-size: 1.5rem;
+// }
 
-.carousel-button:hover {
-  background-color: rgba(0, 0, 0, 0.8);
-}
+// .carousel-button:hover {
+//   background-color: rgba(0, 0, 0, 0.8);
+// }
 
-.carousel-button.left {
-  left: 10px;
-}
+// .carousel-button.left {
+//   left: 10px;
+// }
 
-.carousel-button.right {
-  right: 10px;
-}
+// .carousel-button.right {
+//   right: 10px;
+// }
 
 button:disabled {
   background-color: #b0c4de;
@@ -314,7 +335,8 @@ button:disabled {
   margin: 0 10px; /* Espaçamento entre a linha e os textos */
 }
 
-.links.skills span, .close {
+.links.skills span,
+.close {
   font-size: 1rem; /* Tamanho da fonte */
   margin: 20px 10px; /* Espaçamento lateral */
   padding: 10px 20px; /* Aumenta a área clicável em torno do texto */
@@ -330,7 +352,8 @@ button:disabled {
   display: inline-block; /* Torna o `span` um bloco com área definida */
 }
 
-.links.skills span:hover, .close:hover {
+.links.skills span:hover,
+.close:hover {
   background-color: rgba(255, 255, 255, 0.2); /* Muda o fundo no hover */
   color: #fff; /* Altera a cor do texto no hover */
 }
@@ -354,15 +377,15 @@ button:disabled {
   transition: opacity 1s ease, visibility 0s; /* Remove o delay da visibilidade quando o display fica visível */
 }
 
-@media (min-width: 1000px) { 
-  .display2, .display2.visible {
+@media (min-width: 1000px) {
+  .display2,
+  .display2.visible {
     max-width: 60%;
   }
 
- .display3 .display3.visible  {
-  max-width: 40%;
- }
-
+  .display3 .display3.visible {
+    max-width: 40%;
+  }
 }
 
 @media (max-width: 720px) {
@@ -382,8 +405,6 @@ button:disabled {
   .display3.visible {
     width: 80%; /* Aumenta o width para 80% quando visível */
   }
-
-  
 }
 
 @media (max-width: 525px) {
@@ -401,13 +422,12 @@ button:disabled {
 
   .display1.visible,
   .display2.visible,
-  .display3.visible
-  .display4.visible
-  .display4.hiding {
+  .display3.visible .display4.visible .display4.hiding {
     width: 100%; /* Aumenta o width para 80% quando visível */
   }
 
-  .display2, .display2.visible {
+  .display2,
+  .display2.visible {
     padding: 15px;
   }
 }
@@ -436,9 +456,7 @@ button:disabled {
 
   .display1.visible,
   .display2.visible,
-  .display3.visible
-  .display4.visible
-  .display4.hiding {
+  .display3.visible .display4.visible .display4.hiding {
     width: 100%; /* Aumenta o width para 80% quando visível */
     h1 {
       font-size: 2.5rem;
@@ -451,12 +469,14 @@ button:disabled {
     }
   }
 
-  .links.skills span, .close {
+  .links.skills span,
+  .close {
     font-size: 0.875rem; /* Reduz o tamanho da fonte */
     padding: 8px 16px; /* Reduz o padding */
   }
 
-  .display2, .display2.visible {
+  .display2,
+  .display2.visible {
     h1 {
       font-size: 2.2rem;
     }
@@ -485,9 +505,7 @@ button:disabled {
 
   .display1.visible,
   .display2.visible,
-  .display3.visible
-  .display4.visible
-  .display4.hiding {
+  .display3.visible .display4.visible .display4.hiding {
     width: 100%; /* Aumenta o width para 80% quando visível */
     h1 {
       font-size: 2.5rem;
@@ -500,17 +518,19 @@ button:disabled {
     }
   }
 
-  .links.skills span, .close {
+  .links.skills span,
+  .close {
     font-size: 0.695rem; /* Reduz o tamanho da fonte */
     padding: 6px 14px; /* Reduz o padding */
   }
 
-  .display2, .display2.visible {
+  .display2,
+  .display2.visible {
     h1 {
-      font-size: 2.0rem;
+      font-size: 2rem;
     }
     p {
-      font-size: 1.0rem;
+      font-size: 1rem;
     }
   }
 }
@@ -583,61 +603,136 @@ button:disabled {
   }
 }
 
-
-
-
 @mixin white-gradient {
-	background: linear-gradient(to right,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
 }
 
 $animationSpeed: 40s;
 
 // Animation
 @keyframes scroll {
-	0% { transform: translateX(0); }
-	100% { transform: translateX(calc(-250px * 7))}
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-250px * 7));
+  }
 }
-
 
 // Styling
 .slider {
-	background: white;
-	box-shadow: 0 10px 20px -5px rgba(0, 0, 0, .125);
-	height: 100px;
-	margin: auto;
-	overflow:hidden;
-	position: relative;
-	width: 960px;
-	
-	&::before,
-	&::after {
-		@include white-gradient;
-		content: "";
-		height: 100px;
-		position: absolute;
-		width: 200px;
-		z-index: 2;
-	}
-	
-	&::after {
-		right: 0;
-		top: 0;
-		transform: rotateZ(180deg);
-	}
+  background: white;
+  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.125);
+  height: 100px;
+  margin: auto;
+  overflow: hidden;
+  position: relative;
+  width: 960px;
 
-	&::before {
-		left: 0;
-		top: 0;
-	}
-	
-	.slide-track {
-		animation: scroll $animationSpeed linear infinite;
-		display: flex;
-		width: calc(250px * 14);
-	}
-	
-	.slide {
-		height: 100px;
-		width: 500px;
-	}
+  &::before,
+  &::after {
+    @include white-gradient;
+    content: "";
+    height: 100px;
+    position: absolute;
+    width: 200px;
+    z-index: 2;
+  }
+
+  &::after {
+    right: 0;
+    top: 0;
+    transform: rotateZ(180deg);
+  }
+
+  &::before {
+    left: 0;
+    top: 0;
+  }
+
+  .slide-track {
+    animation: scroll $animationSpeed linear infinite;
+    display: flex;
+    width: calc(250px * 14);
+  }
+
+  .slide {
+    height: 100px;
+    width: 500px;
+  }
+}
+
+.carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px; /* Espaço entre os itens */
+  position: relative;
+}
+
+.carousel-item {
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.carousel-item img {
+  border-radius: 10px;
+  display: block;
+  width: 150px;
+  height: 100px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.carousel-item.center img {
+  width: 300px;
+  height: 200px;
+}
+
+.carousel-item:hover img {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transform: scale(1.05);
+}
+
+.hover-indicator {
+  position: absolute;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.carousel-item:hover .hover-indicator {
+  display: flex;
+}
+
+.hover-indicator.open button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.hover-indicator.left span {
+  transform: translate(-10px, 0); /* Seta levemente deslocada para esquerda */
+}
+
+.hover-indicator.right span {
+  transform: translate(10px, 0); /* Seta levemente deslocada para direita */
 }
