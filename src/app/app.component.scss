@@ -80,6 +80,7 @@ main {
   overflow: hidden; /* Para esconder o texto que não foi digitado */
   border-right: 2px solid rgb(146, 146, 146); /* Simula o cursor */
   animation: blink 0.7s step-end infinite; /* Efeito de piscar */
+  font-family: "Roboto Mono", serif;
 }
 
 .welcome-text,
