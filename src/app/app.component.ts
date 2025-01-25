@@ -2,11 +2,12 @@ import { CommonModule } from '@angular/common';
 import { Component, HostListener } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { FilterPipe } from './filter.pipe';
+import { OrderByPositionPipe } from './order.pipe';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CommonModule, FilterPipe],
+  imports: [RouterOutlet, CommonModule, FilterPipe, OrderByPositionPipe],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
@@ -149,6 +150,7 @@ goToDisplay(displayNumber: number) {
 
   ngOnInit() {
     this.type();
+    this.sortItems();
   }
 
   type() {
@@ -165,19 +167,19 @@ goToDisplay(displayNumber: number) {
   }
 
 
-  items = [
+  items = [    
+    { src: 'assets/hidden-item1.jpg', alt: 'Hidden Item 1', position: 'hidden' },
+    { src: 'assets/hidden-item2.jpg', alt: 'Hidden Item 2', position: 'hidden' },
     { src: 'assets/left-item.jpg', alt: 'Left Item', position: 'left' },
     { src: 'assets/center-item.jpg', alt: 'Center Item', position: 'center' },
     { src: 'assets/right-item.jpg', alt: 'Right Item', position: 'right' },
-    { src: 'assets/hidden-item1.jpg', alt: 'Hidden Item 1', position: 'hidden' },
-    { src: 'assets/hidden-item2.jpg', alt: 'Hidden Item 2', position: 'hidden' },
   ];
   
   rotateRight() {
     const lastItem = this.items.pop(); // Remove o último item
     if (lastItem) {
       this.items.unshift(lastItem); // Adiciona o item ao início do array
-      this.updatePositions();
+      this.updatePositions(); // Atualiza as posições
     }
   }
   
@@ -185,7 +187,7 @@ goToDisplay(displayNumber: number) {
     const firstItem = this.items.shift(); // Remove o primeiro item
     if (firstItem) {
       this.items.push(firstItem); // Adiciona o item ao final do array
-      this.updatePositions();
+      this.updatePositions(); // Atualiza as posições
     }
   }
   
@@ -205,12 +207,20 @@ goToDisplay(displayNumber: number) {
 
   handleClick(position: string) {
     if (position === 'left') {
-      this.rotateRight(); // Inverte o movimento
+      this.rotateRight(); // Gira os itens para a direita
     } else if (position === 'right') {
-      this.rotateLeft(); // Inverte o movimento
+      this.rotateLeft(); // Gira os itens para a esquerda
     }
   }
 
+  sortItems() {
+    const priorityOrder = ['left', 'center', 'right', 'hidden'];
+    this.items.sort((a, b) => {
+      return (
+        priorityOrder.indexOf(a.position) - priorityOrder.indexOf(b.position)
+      );
+    });
+  }
   
 }
 

@@ -72,7 +72,7 @@ main {
 }
 
 #typing-effect {
-  font-size: 3.5rem; /* Tamanho maior para o h1 */
+  font-size: 3.2rem; /* Tamanho maior para o h1 */
   padding: 10px; /* Espaçamento vertical */
   color: rgb(146, 146, 146);
   font-weight: 500;
@@ -129,6 +129,60 @@ main {
   cursor: pointer;
   transform: scale(1.2); /* Aumenta o tamanho do SVG ao passar o mouse */
   fill: #007bff; /* Muda a cor ao passar o mouse */
+}
+
+.skills .angular-icon:hover {
+  cursor: pointer;
+  transform: scale(1.2); /* Aumenta o tamanho do SVG ao passar o mouse */
+  fill: #DD0031; /* Muda a cor ao passar o mouse */
+}
+
+.skills .nestjs-icon:hover {
+  cursor: pointer;
+  transform: scale(1.2); /* Aumenta o tamanho do SVG ao passar o mouse */
+  fill: #E0234E; /* Muda a cor ao passar o mouse */
+}
+
+.skills .typescript-icon:hover {
+  cursor: pointer;
+  transform: scale(1.2); /* Aumenta o tamanho do SVG ao passar o mouse */
+  fill: #3178C6; /* Muda a cor ao passar o mouse */
+}
+
+.skills .javascript-icon:hover {
+  cursor: pointer;
+  transform: scale(1.2); /* Aumenta o tamanho do SVG ao passar o mouse */
+  fill: #F7DF1E; /* Muda a cor ao passar o mouse */
+}
+
+.skills .html-icon:hover {
+  cursor: pointer;
+  transform: scale(1.2); /* Aumenta o tamanho do SVG ao passar o mouse */
+  fill: #E34F26; /* Muda a cor ao passar o mouse */
+}
+
+.skills .css-icon:hover {
+  cursor: pointer;
+  transform: scale(1.2); /* Aumenta o tamanho do SVG ao passar o mouse */
+  fill: #1572B6; /* Muda a cor ao passar o mouse */
+}
+
+.skills .express-icon:hover {
+  cursor: pointer;
+  transform: scale(1.2); /* Aumenta o tamanho do SVG ao passar o mouse */
+  fill: url(#gradient); /* Aplica o degradê */
+}
+
+.skills .sql-icon:hover {
+  cursor: pointer;
+  transform: scale(1.2); /* Aumenta o tamanho do SVG ao passar o mouse */
+  fill: #00618A; /* Muda a cor ao passar o mouse */
+}
+
+.skills .nosql-icon:hover {
+  cursor: pointer;
+  transform: scale(1.2); /* Aumenta o tamanho do SVG ao passar o mouse */
+  fill: #3EAF7C; /* Muda a cor ao passar o mouse */
 }
 
 .controlDisplay {
@@ -515,7 +569,7 @@ button:disabled {
       font-size: 1.5rem;
     }
     #typing-effect {
-      font-size: 2.5rem;
+      font-size: 2.2rem;
     }
   }
 
@@ -673,12 +727,36 @@ $animationSpeed: 40s;
   justify-content: center;
   gap: 20px; /* Espaço entre os itens */
   position: relative;
+  width: 100%; /* Define a largura total do carrossel */
 }
 
 .carousel-item {
   position: relative;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.5s ease, box-shadow 0.3s ease, width 0.5s ease, height 0.5s ease; /* Transição de movimento e tamanho */
   cursor: pointer;
+  flex-shrink: 0; /* Garante que os itens não encolham */
+}
+
+.carousel-item.left {
+  transform: translateX(-100%); /* Move o item para a esquerda */
+  width: 150px;
+  height: 100px;
+  z-index: 1; /* Item lateral atrás do central */
+}
+
+.carousel-item.center {
+  transform: translateX(0); /* Centraliza o item */
+  width: 300px;
+  height: 200px;
+  z-index: 2; /* Item central em primeiro plano */
+}
+
+
+.carousel-item.right {
+  transform: translateX(100%); /* Move o item para a direita */
+  width: 150px;
+  height: 100px;
+  z-index: 1;
 }
 
 .carousel-item img {
@@ -719,6 +797,17 @@ $animationSpeed: 40s;
 
 .carousel-item:hover .hover-indicator {
   display: flex;
+}
+
+/* Esconde os itens com posição "hidden" */
+.carousel-item.hidden {
+  transform: translateX(200%); /* Move o item para fora da tela */
+  width: 0; /* Oculta completamente os itens hidden */
+  height: 0;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .hover-indicator.open button {
