@@ -315,10 +315,33 @@
       </div>
       <button class="carousel-button right" (click)="nextSlide()">&#10095;</button> -->
 
-      <div class="carousel">
+       <!-- <div class="carousel">
         <div 
           class="carousel-item" 
           *ngFor="let item of items | filter: ['center', 'left', 'right']: true" 
+          [ngClass]="item.position" 
+          (click)="handleClick(item.position)">
+          
+          <img [src]="item.src" [alt]="item.alt || 'Carousel Item'">
+          
+          <div class="hover-indicator" [ngClass]="item.position">
+            <ng-container *ngIf="item.position === 'center'">
+              <button>Abrir</button>
+            </ng-container>
+            <ng-container *ngIf="item.position === 'left'">
+              <span>&#8592;</span> 
+            </ng-container>
+            <ng-container *ngIf="item.position === 'right'">
+              <span>&#8594;</span> 
+            </ng-container>
+          </div>
+        </div>
+      </div>  -->
+
+      <div class="carousel">
+        <div 
+          class="carousel-item" 
+          *ngFor="let item of items" 
           [ngClass]="item.position" 
           (click)="handleClick(item.position)">
           
@@ -337,6 +360,7 @@
           </div>
         </div>
       </div>
+
       </div>
     </div>
 
