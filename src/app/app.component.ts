@@ -164,43 +164,15 @@ export class AppComponent {
     { src: 'assets/a (5).jpg', alt: 'Right Item', position: 'right' },
   ];
 
-  rotateRight() {
-    const lastItem = this.items.pop();
-    if (lastItem) {
-      this.items.unshift(lastItem);
-      this.updatePositions();
-    }
-  }
-
-  rotateLeft() {
-    const firstItem = this.items.shift();
-    if (firstItem) {
-      this.items.push(firstItem);
-      this.updatePositions();
-    }
-  }
-
-  updatePositions() {
-    this.items.forEach((item, index) => {
-      if (index === 0) {
-        item.position = 'left';
-      } else if (index === 1) {
-        item.position = 'center';
-      } else if (index === 2) {
-        item.position = 'right';
-      } else {
-        item.position = 'hidden';
-      }
-    });
-  }
-
   handleClick(position: string) {
-    if (position === 'left') {
-      this.rotateRight();
-    } else if (position === 'right') {
-      this.rotateLeft();
-    }
-  }
+  const index = this.items.findIndex(item => item.position === position);
+  this.items.forEach((item, i) => {
+    if (i === index) item.position = 'center';
+    else if (i === (index + 1) % this.items.length) item.position = 'right';
+    else if (i === (index - 1 + this.items.length) % this.items.length) item.position = 'left';
+    else item.position = 'hidden';
+  });
+}
   
   sortItems() {
     const priorityOrder = ['left', 'center', 'right', 'hidden'];
@@ -210,4 +182,7 @@ export class AppComponent {
       );
     });
   }
+
+
+  
 }

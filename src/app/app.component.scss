@@ -593,88 +593,6 @@ $animationSpeed: 40s;
   }
 }
 
-.carousel {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 50px; 
-  position: relative;
-  width: 100%; 
-}
-
-.carousel-item {
-  position: relative;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
-  flex-shrink: 0; 
-}
-
-.carousel-item img {
-  border-radius: 10px;
-  display: block;
-  width: 300px;
-  height: 200px;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
-
-.carousel-item.center img {
-  width: 600px;
-  height: 400px;
-}
-
-.carousel-item:hover img {
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-  transform: scale(1.05);
-}
-
-.hover-indicator {
-  position: absolute;
-  display: none;
-  justify-content: center;
-  align-items: center;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: white;
-  background: rgba(0, 0, 0, 0.5);
-  padding: 10px;
-  border-radius: 5px;
-}
-
-.carousel-item:hover .hover-indicator {
-  display: flex;
-}
-
-.carousel-item.hidden {
-  position: absolute;
-  visibility: hidden; 
-  opacity: 0;
-  transform: translateX(100%); 
-  pointer-events: none; 
-}
-
-.hover-indicator.open button {
-  background: #007bff;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.hover-indicator.left span {
-  transform: translate(-10px, 0); /* Seta levemente deslocada para esquerda */
-}
-
-.hover-indicator.right span {
-  transform: translate(10px, 0); /* Seta levemente deslocada para direita */
-}
-
-
 .skills .angular-icon:hover {
   cursor: pointer;
   transform: scale(1.2); 
@@ -727,4 +645,168 @@ $animationSpeed: 40s;
   cursor: pointer;
   transform: scale(1.2); 
   fill: #3EAF7C; 
+}
+
+
+.carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  height: 500px;
+  perspective: 1000px; 
+}
+
+.carousel-item {
+  position: absolute;
+  width: 300px;
+  height: 400px;
+  transition: transform 0.8s ease, opacity 0.8s ease,  width 0.3s ease, height 0.3s ease;
+  transform-style: preserve-3d;
+  opacity: 0.5; 
+  cursor: pointer;
+}
+
+.carousel-item img {
+  border-radius: 10px;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease, box-shadow 0.8s ease;
+}
+
+.carousel-item.center {
+  transform: translateZ(200px); 
+  opacity: 1; 
+  z-index: 3; 
+  span {
+    font-family: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI",
+  Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+  "Segoe UI Symbol";
+  }
+}
+
+.carousel-item.left {
+  transform: translateX(-300px) rotateY(30deg) translateZ(-100px); 
+  z-index: 2; 
+}
+
+.carousel-item.right {
+  transform: translateX(300px) rotateY(-30deg) translateZ(-100px); 
+  z-index: 2; 
+}
+
+.carousel-item.hidden {
+  transform: translateZ(-500px); 
+  opacity: 0; 
+  pointer-events: none; 
+}
+
+.carousel-item:hover img {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transform: scale(1.05);
+}
+
+
+.hover-indicator {
+  position: absolute;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  height: 100%; 
+  z-index: 2;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  background: rgba(0, 0, 0, 0.5); 
+  padding: 0; 
+  border-radius: 10px; 
+  transition: transform 0.5s ease, opacity 0.8s ease;
+  opacity: 0;
+}
+
+.hover-indicator:hover {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.carousel-item:hover .hover-indicator {
+  display: flex;
+}
+
+.indicatorLeft {
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  clip-path: polygon(50% 0%, 100% 100%, 0% 100%); 
+  transform: rotate(270deg);
+  transition: transform 0.3s ease;
+}
+
+.indicatorRight {
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  clip-path: polygon(50% 0%, 100% 100%, 0% 100%); 
+  transform: rotate(90deg);
+  transition: transform 0.3s ease;
+}
+
+@media (max-width: 710px) {
+  .indicatorLeft {
+    transform: rotate(0deg); 
+  }
+
+  .indicatorRight {
+    transform: rotate(180deg); 
+  }
+
+
+  .carousel {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80%; 
+    perspective: 1200px; 
+    overflow: hidden;
+  }
+
+  .carousel-item {
+    width: 75%;
+    height: 300px;
+    transform-origin: center center;
+    transition: transform 0.8s ease, opacity 0.8s ease, width 0.3s ease, height 0.3s ease;
+  }
+
+  .carousel-item.center {
+    transform: translateZ(200px) translateY(0);
+    opacity: 1;
+    z-index: 3;
+  }
+
+  .carousel-item.left {
+    transform: translateY(-300px) rotateX(30deg) translateZ(-100px);
+    z-index: 2;
+  }
+
+  .carousel-item.right {
+    transform: translateY(300px) rotateX(-30deg) translateZ(-100px);
+    z-index: 2;
+  }
+
+  .carousel-item.hidden {
+    transform: translateZ(-500px);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .carousel-item img {
+    width: 100%;
+    height: 100%;
+  }
 }
