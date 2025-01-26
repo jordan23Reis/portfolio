@@ -11,25 +11,25 @@ h1 {
 }
 
 .closeDisplay {
-  color: rgb(146, 146, 146); /* Cor inicial do texto */
+  color: rgb(146, 146, 146); 
   font-size: 1.5rem;
   font-weight: 500;
   line-height: 100%;
   font-family: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI",
     Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
     "Segoe UI Symbol";
-  border-radius: 50%; /* Bordas totalmente arredondadas */
+  border-radius: 50%; 
   position: absolute;
   top: 2%;
   right: 2%;
-  transition: transform 0.3s ease, color 0.3s ease; /* Adiciona transições para tamanho e cor */
-  cursor: pointer; /* Mostra que é clicável */
-  transform: scale(1); /* Estado padrão */
+  transition: transform 0.3s ease, color 0.3s ease; 
+  cursor: pointer; 
+  transform: scale(1); 
 }
 
 .closeDisplay:hover {
-  transform: scale(1.3); /* Aumenta ligeiramente o tamanho */
-  color: #ff4d4f; /* Muda a cor do texto ao passar o mouse */
+  transform: scale(1.3); 
+  color: #ff4d4f; 
 }
 
 p {
@@ -67,46 +67,46 @@ main {
 .dontover {
   max-width: 100vw;
   max-height: 100vh;
-  box-sizing: border-box; /* Inclui padding e border no cálculo do tamanho */
-  overflow: hidden; /* Evita transbordamento */
+  box-sizing: border-box; 
+  overflow: hidden; 
 }
 
 #typing-effect {
-  font-size: 3.2rem; /* Tamanho maior para o h1 */
-  padding: 10px; /* Espaçamento vertical */
+  font-size: 3.2rem;
+  padding: 10px; 
   color: rgb(146, 146, 146);
   font-weight: 500;
-  white-space: nowrap; /* Para evitar que o texto quebre a linha */
-  overflow: hidden; /* Para esconder o texto que não foi digitado */
-  border-right: 2px solid rgb(146, 146, 146); /* Simula o cursor */
-  animation: blink 0.7s step-end infinite; /* Efeito de piscar */
+  white-space: nowrap; 
+  overflow: hidden; 
+  border-right: 2px solid rgb(146, 146, 146); 
+  animation: blink 0.7s step-end infinite; 
   font-family: "Roboto Mono", serif;
 }
 
 .welcome-text,
 .role-text {
-  font-size: 2rem; /* Tamanho da fonte para os parágrafos */
-  margin: 10px 0; /* Espaçamento vertical entre os parágrafos */
-  opacity: 0; /* Começa invisível */
-  transform: translateY(20px); /* Começa deslocado */
-  transition: opacity 0.5s ease, transform 0.5s ease; /* Transição suave */
+  font-size: 2rem; 
+  margin: 10px 0; 
+  opacity: 0; 
+  transform: translateY(20px); 
+  transition: opacity 0.5s ease, transform 0.5s ease; 
 }
 
 .welcome-text {
   margin-left: 15px;
-  opacity: 1; /* Torna visível */
-  transform: translateY(0); /* Move para a posição original */
+  opacity: 1; 
+  transform: translateY(0); 
 }
 
 .role-text {
-  opacity: 1; /* Torna visível */
-  transform: translateY(0); /* Move para a posição original */
+  opacity: 1; 
+  transform: translateY(0); 
 }
 
 .skills {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem; /* Espaçamento entre as competências */
+  gap: 1rem; 
 }
 
 .skills span,
@@ -118,71 +118,17 @@ main {
 }
 
 .skills svg {
-  width: 60px; /* Define a largura do ícone */
-  height: 60px; /* Define a altura do ícone */
-  fill: rgb(146, 146, 146); /* Define a cor do ícone */
-  margin-right: 15px; /* Adiciona espaço à direita do ícone */
+  width: 60px; 
+  height: 60px; 
+  fill: rgb(146, 146, 146); 
+  margin-right: 15px; 
   transition: transform 0.3s ease, fill 0.3s ease;
 }
 
 .skills svg:hover {
   cursor: pointer;
-  transform: scale(1.2); /* Aumenta o tamanho do SVG ao passar o mouse */
-  fill: #007bff; /* Muda a cor ao passar o mouse */
-}
-
-.skills .angular-icon:hover {
-  cursor: pointer;
-  transform: scale(1.2); /* Aumenta o tamanho do SVG ao passar o mouse */
-  fill: #DD0031; /* Muda a cor ao passar o mouse */
-}
-
-.skills .nestjs-icon:hover {
-  cursor: pointer;
-  transform: scale(1.2); /* Aumenta o tamanho do SVG ao passar o mouse */
-  fill: #E0234E; /* Muda a cor ao passar o mouse */
-}
-
-.skills .typescript-icon:hover {
-  cursor: pointer;
-  transform: scale(1.2); /* Aumenta o tamanho do SVG ao passar o mouse */
-  fill: #3178C6; /* Muda a cor ao passar o mouse */
-}
-
-.skills .javascript-icon:hover {
-  cursor: pointer;
-  transform: scale(1.2); /* Aumenta o tamanho do SVG ao passar o mouse */
-  fill: #F7DF1E; /* Muda a cor ao passar o mouse */
-}
-
-.skills .html-icon:hover {
-  cursor: pointer;
-  transform: scale(1.2); /* Aumenta o tamanho do SVG ao passar o mouse */
-  fill: #E34F26; /* Muda a cor ao passar o mouse */
-}
-
-.skills .css-icon:hover {
-  cursor: pointer;
-  transform: scale(1.2); /* Aumenta o tamanho do SVG ao passar o mouse */
-  fill: #1572B6; /* Muda a cor ao passar o mouse */
-}
-
-.skills .express-icon:hover {
-  cursor: pointer;
-  transform: scale(1.2); /* Aumenta o tamanho do SVG ao passar o mouse */
-  fill: url(#gradient); /* Aplica o degradê */
-}
-
-.skills .sql-icon:hover {
-  cursor: pointer;
-  transform: scale(1.2); /* Aumenta o tamanho do SVG ao passar o mouse */
-  fill: #00618A; /* Muda a cor ao passar o mouse */
-}
-
-.skills .nosql-icon:hover {
-  cursor: pointer;
-  transform: scale(1.2); /* Aumenta o tamanho do SVG ao passar o mouse */
-  fill: #3EAF7C; /* Muda a cor ao passar o mouse */
+  transform: scale(1.2); 
+  fill: #007bff; 
 }
 
 .controlDisplay {
@@ -201,22 +147,22 @@ main {
   background: white;
   margin: 0 5px;
   cursor: pointer;
-  opacity: 0.5; /* Opacidade padrão */
+  opacity: 0.5; 
 }
 
 .controlDisplay span.active {
-  background: white; /* Bolinha ativa */
-  opacity: 1; /* Totalmente visível */
+  background: white; 
+  opacity: 1; 
 }
 
 .display1 {
   display: flex;
-  flex-direction: column; /* Coloca os elementos em coluna */
-  align-items: center; /* Centraliza os itens horizontalmente */
-  text-align: center; /* Centraliza o texto */
-  margin: 20px; /* Margem ao redor do container */
-  padding: 20px; /* Espaçamento interno */
-  color: rgb(146, 146, 146); /* Cor do texto */
+  flex-direction: column; 
+  align-items: center; 
+  text-align: center; 
+  margin: 20px; 
+  padding: 20px; 
+  color: rgb(146, 146, 146); 
 }
 
 .display2 {
@@ -251,17 +197,17 @@ main {
 }
 
 .display4 {
-  position: fixed; /* Permite ocupar toda a tela */
-  top: 0; /* Inicia no topo da tela */
+  position: fixed; 
+  top: 0; 
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: white; /* Cor de fundo */
-  transition: transform 1s ease-in-out, opacity 0.5s ease-in-out; /* Animação suave */
-  z-index: 999; /* Fica acima de outros conteúdos */
-  transform: translateY(100%); /* Inicia fora da tela (para baixo) */
-  opacity: 0; /* Inicia invisível */
-  visibility: hidden; /* Inicia invisível */
+  background-color: white; 
+  transition: transform 1s ease-in-out, opacity 0.5s ease-in-out; 
+  z-index: 999; 
+  transform: translateY(100%); 
+  opacity: 0; 
+  visibility: hidden;
 }
 
 .displayContent {
@@ -274,143 +220,69 @@ main {
   position: relative;
 }
 
-// .carousel-container {
-//   width: 100%;
-//   max-width: 60%; /* Limita a largura máxima */
-//   margin: auto auto; /* Centraliza o carrossel na tela */
-//   height: 400px;
-//   overflow: hidden;
-//   position: relative;
-// }
-
-// .carousel {
-//   display: flex;
-//   flex-direction: row;
-//   transition: transform 0.5s ease-in-out;
-// }
-
-// .carousel-item {
-//   min-width: 80%; /* Garante que cada item ocupe 100% da largura da tela */
-//   height: 400px;
-//   background-color: gray;
-//   box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.4);
-//   border-radius: 10px;
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: center;
-//   align-items: center;
-//   text-align: center;
-//   padding: 20px;
-//   transition: transform 0.3s ease, box-shadow 0.3s ease;
-// }
-
-// .carousel-item h1 {
-//   font-size: 2rem;
-//   margin-bottom: 15px;
-//   color: #046db3;
-// }
-
-// .carousel-item p {
-//   font-size: 1.2rem;
-//   color: #333;
-// }
-
-// .carousel-item:hover {
-//   transform: scale(1.05);
-//   box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.2);
-// }
-
-// /* Botões laterais de navegação */
-// .carousel-button {
-//   position: absolute;
-//   top: 50%;
-//   transform: translateY(-50%);
-//   background-color: rgba(0, 0, 0, 0.5);
-//   color: white;
-//   border: none;
-//   padding: 15px;
-//   cursor: pointer;
-//   border-radius: 50%;
-//   z-index: 1;
-//   font-size: 1.5rem;
-// }
-
-// .carousel-button:hover {
-//   background-color: rgba(0, 0, 0, 0.8);
-// }
-
-// .carousel-button.left {
-//   left: 10px;
-// }
-
-// .carousel-button.right {
-//   right: 10px;
-// }
-
 button:disabled {
   background-color: #b0c4de;
   cursor: not-allowed;
 }
 
 .display4.visible {
-  opacity: 1; /* Torna visível */
-  visibility: visible; /* Define como visível */
-  transform: translateY(0); /* Move para cima ocupando toda a tela */
+  opacity: 1; 
+  visibility: visible; 
+  transform: translateY(0); 
 }
 
 .display4.hidden {
-  opacity: 0; /* Torna invisível */
-  visibility: hidden; /* Mantém invisível após a animação */
-  transform: translateY(100%); /* Fica fora da tela quando oculto */
+  opacity: 0; 
+  visibility: hidden; 
+  transform: translateY(100%); 
 }
 
-/* Adiciona uma classe para transição de saída */
+
 .display4.hiding {
-  opacity: 1; /* Torna visível */
+  opacity: 1; 
   visibility: visible;
-  transform: translateY(100%); /* Volta para baixo */
+  transform: translateY(100%); 
 }
 
-/* Adiciona uma classe para transição de saída */
+
 .display4.hiding {
-  transform: translateY(100%); /* Volta para baixo */
+  transform: translateY(100%); 
 }
 
-/* Estilo para os links e skills */
 .links.skills .close {
   display: flex;
-  align-items: center; /* Centraliza os itens verticalmente */
-  margin-top: 20px; /* Espaçamento acima da linha horizontal */
+  align-items: center; 
+  margin-top: 20px; 
 }
 
 .horizontalLine {
-  flex-grow: 1; /* Faz a linha horizontal ocupar espaço disponível */
-  height: 1px; /* Espessura da linha */
-  background-color: rgb(146, 146, 146); /* Cor da linha */
-  margin: 0 10px; /* Espaçamento entre a linha e os textos */
+  flex-grow: 1; 
+  height: 1px; 
+  background-color: rgb(146, 146, 146); 
+  margin: 0 10px; 
 }
 
 .links.skills span,
 .close {
-  font-size: 1rem; /* Tamanho da fonte */
-  margin: 20px 10px; /* Espaçamento lateral */
-  padding: 10px 20px; /* Aumenta a área clicável em torno do texto */
-  cursor: pointer; /* Indica que são clicáveis */
-  transition: color 0.3s, background-color 0.3s; /* Efeito de transição para hover */
+  font-size: 1rem; 
+  margin: 20px 10px; 
+  padding: 10px 20px; 
+  cursor: pointer; 
+  transition: color 0.3s, background-color 0.3s;
   background-color: rgba(
     255,
     255,
     255,
     0.1
-  ); /* Adiciona um fundo para melhor visualização */
-  border-radius: 5px; /* Bordas arredondadas */
-  display: inline-block; /* Torna o `span` um bloco com área definida */
+  ); 
+  border-radius: 5px; 
+  display: inline-block; 
 }
 
 .links.skills span:hover,
 .close:hover {
-  background-color: rgba(255, 255, 255, 0.2); /* Muda o fundo no hover */
-  color: #fff; /* Altera a cor do texto no hover */
+  background-color: rgba(255, 255, 255, 0.2); 
+  color: #fff; 
 }
 
 .display1,
@@ -418,9 +290,9 @@ button:disabled {
 .display3 {
   width: 60%;
   opacity: 0;
-  visibility: hidden; /* Esconde o elemento completamente */
+  visibility: hidden; 
   position: absolute;
-  transition: opacity 1s ease, visibility 0s 1s; /* A transição de visibilidade espera até que a opacidade termine */
+  transition: opacity 1s ease, visibility 0s 1s; 
 }
 
 .display1.visible,
@@ -428,8 +300,8 @@ button:disabled {
 .display3.visible {
   width: 60%;
   opacity: 1;
-  visibility: visible; /* Torna o elemento visível */
-  transition: opacity 1s ease, visibility 0s; /* Remove o delay da visibilidade quando o display fica visível */
+  visibility: visible; 
+  transition: opacity 1s ease, visibility 0s; 
 }
 
 @media (min-width: 1000px) {
@@ -445,40 +317,40 @@ button:disabled {
 
 @media (max-width: 720px) {
   .skills svg {
-    width: 50px; /* Define a largura do ícone */
-    height: 50px; /* Define a altura do ícone */
+    width: 50px; 
+    height: 50px; 
   }
 
   .display1,
   .display2,
   .display3 {
-    width: 80%; /* Aumenta o width para 80% em telas menores */
+    width: 80%; 
   }
 
   .display1.visible,
   .display2.visible,
   .display3.visible {
-    width: 80%; /* Aumenta o width para 80% quando visível */
+    width: 80%; 
   }
 }
 
 @media (max-width: 525px) {
   .skills svg {
-    width: 40px; /* Define a largura do ícone */
-    height: 40px; /* Define a altura do ícone */
+    width: 40px; 
+    height: 40px; 
   }
 
   .display1,
   .display2,
   .display3,
   .display4 {
-    width: 100%; /* Aumenta o width para 80% em telas menores */
+    width: 100%; 
   }
 
   .display1.visible,
   .display2.visible,
   .display3.visible .display4.visible .display4.hiding {
-    width: 100%; /* Aumenta o width para 80% quando visível */
+    width: 100%; 
   }
 
   .display2,
@@ -489,15 +361,15 @@ button:disabled {
 
 @media (max-width: 430px) {
   .skills svg {
-    width: 35px; /* Define a largura do ícone */
-    height: 35px; /* Define a altura do ícone */
+    width: 35px; 
+    height: 35px; 
   }
 
   .display1,
   .display2,
   .display3,
   .display4 {
-    width: 100%; /* Aumenta o width para 80% em telas menores */
+    width: 100%; 
     h1 {
       font-size: 2.5rem;
     }
@@ -546,22 +418,7 @@ button:disabled {
   .display2,
   .display3,
   .display4 {
-    width: 100%; /* Aumenta o width para 80% em telas menores */
-    h1 {
-      font-size: 2.5rem;
-    }
-    p {
-      font-size: 1.5rem;
-    }
-    #typing-effect {
-      font-size: 2.5rem;
-    }
-  }
-
-  .display1.visible,
-  .display2.visible,
-  .display3.visible .display4.visible .display4.hiding {
-    width: 100%; /* Aumenta o width para 80% quando visível */
+    width: 100%; 
     h1 {
       font-size: 2.5rem;
     }
@@ -573,10 +430,25 @@ button:disabled {
     }
   }
 
+  .display1.visible,
+  .display2.visible,
+  .display3.visible .display4.visible .display4.hiding {
+    width: 100%; 
+    h1 {
+      font-size: 2.5rem;
+    }
+    p {
+      font-size: 1.5rem;
+    }
+    #typing-effect {
+      font-size: 2.5rem;
+    }
+  }
+
   .links.skills span,
   .close {
-    font-size: 0.695rem; /* Reduz o tamanho da fonte */
-    padding: 6px 14px; /* Reduz o padding */
+    font-size: 0.695rem; 
+    padding: 6px 14px; 
   }
 
   .display2,
@@ -597,7 +469,7 @@ button:disabled {
 .waving-hand {
   display: inline-block;
   animation: wave 2s infinite;
-  transform-origin: 70% 70%; /* Ponto de origem da animação */
+  transform-origin: 70% 70%;
 }
 
 @keyframes wave {
@@ -621,7 +493,7 @@ button:disabled {
   }
   60% {
     transform: rotate(0deg);
-  } /* Volta à posição inicial */
+  } 
   100% {
     transform: rotate(0deg);
   }
@@ -629,19 +501,19 @@ button:disabled {
 
 @keyframes blink {
   50% {
-    border-color: transparent; /* Faz o cursor piscar */
+    border-color: transparent; 
   }
 }
 
 @keyframes expandBox {
   0% {
-    transform: scale(0); /* Começa invisível no centro */
+    transform: scale(0); 
   }
   50% {
-    transform: scale(0.5); /* Crescendo a 50% */
+    transform: scale(0.5); 
   }
   100% {
-    transform: scale(1); /* Tamanho completo */
+    transform: scale(1); 
   }
 }
 
@@ -649,12 +521,12 @@ button:disabled {
   0% {
     clip-path: inset(
       50% 50% 50% 50%
-    ); /* O conteúdo está completamente oculto */
+    ); 
   }
   100% {
     clip-path: inset(
       0% 0% 0% 0%
-    ); /* O quadrado se expande para revelar todo o conteúdo */
+    ); 
   }
 }
 
@@ -668,7 +540,7 @@ button:disabled {
 
 $animationSpeed: 40s;
 
-// Animation
+
 @keyframes scroll {
   0% {
     transform: translateX(0);
@@ -678,7 +550,7 @@ $animationSpeed: 40s;
   }
 }
 
-// Styling
+
 .slider {
   background: white;
   box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.125);
@@ -725,52 +597,30 @@ $animationSpeed: 40s;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 20px; /* Espaço entre os itens */
+  gap: 50px; 
   position: relative;
-  width: 100%; /* Define a largura total do carrossel */
+  width: 100%; 
 }
 
 .carousel-item {
   position: relative;
-  transition: transform 0.5s ease, box-shadow 0.3s ease, width 0.5s ease, height 0.5s ease; /* Transição de movimento e tamanho */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
-  flex-shrink: 0; /* Garante que os itens não encolham */
-}
-
-.carousel-item.left {
-  transform: translateX(-100%); /* Move o item para a esquerda */
-  width: 150px;
-  height: 100px;
-  z-index: 1; /* Item lateral atrás do central */
-}
-
-.carousel-item.center {
-  transform: translateX(0); /* Centraliza o item */
-  width: 300px;
-  height: 200px;
-  z-index: 2; /* Item central em primeiro plano */
-}
-
-
-.carousel-item.right {
-  transform: translateX(100%); /* Move o item para a direita */
-  width: 150px;
-  height: 100px;
-  z-index: 1;
+  flex-shrink: 0; 
 }
 
 .carousel-item img {
   border-radius: 10px;
   display: block;
-  width: 150px;
-  height: 100px;
+  width: 300px;
+  height: 200px;
   object-fit: cover;
   transition: transform 0.3s ease;
 }
 
 .carousel-item.center img {
-  width: 300px;
-  height: 200px;
+  width: 600px;
+  height: 400px;
 }
 
 .carousel-item:hover img {
@@ -799,15 +649,12 @@ $animationSpeed: 40s;
   display: flex;
 }
 
-/* Esconde os itens com posição "hidden" */
 .carousel-item.hidden {
-  transform: translateX(200%); /* Move o item para fora da tela */
-  width: 0; /* Oculta completamente os itens hidden */
-  height: 0;
+  position: absolute;
+  visibility: hidden; 
   opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  z-index: 0;
+  transform: translateX(100%); 
+  pointer-events: none; 
 }
 
 .hover-indicator.open button {
@@ -825,4 +672,59 @@ $animationSpeed: 40s;
 
 .hover-indicator.right span {
   transform: translate(10px, 0); /* Seta levemente deslocada para direita */
+}
+
+
+.skills .angular-icon:hover {
+  cursor: pointer;
+  transform: scale(1.2); 
+  fill: #DD0031; 
+}
+
+.skills .nestjs-icon:hover {
+  cursor: pointer;
+  transform: scale(1.2); 
+  fill: #E0234E; 
+}
+
+.skills .typescript-icon:hover {
+  cursor: pointer;
+  transform: scale(1.2); 
+  fill: #3178C6; 
+}
+
+.skills .javascript-icon:hover {
+  cursor: pointer;
+  transform: scale(1.2); 
+  fill: #F7DF1E; 
+}
+
+.skills .html-icon:hover {
+  cursor: pointer;
+  transform: scale(1.2); 
+  fill: #E34F26; 
+}
+
+.skills .css-icon:hover {
+  cursor: pointer;
+  transform: scale(1.2); 
+  fill: #1572B6; 
+}
+
+.skills .express-icon:hover {
+  cursor: pointer;
+  transform: scale(1.2); 
+  fill: url(#gradient); 
+}
+
+.skills .sql-icon:hover {
+  cursor: pointer;
+  transform: scale(1.2); 
+  fill: #00618A; 
+}
+
+.skills .nosql-icon:hover {
+  cursor: pointer;
+  transform: scale(1.2); 
+  fill: #3EAF7C; 
 }

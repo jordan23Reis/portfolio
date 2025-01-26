@@ -1,27 +1,25 @@
 import { CommonModule } from '@angular/common';
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, inject, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { FilterPipe } from './filter.pipe';
-import { OrderByPositionPipe } from './order.pipe';
+import { Platform } from '@angular/cdk/platform';
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CommonModule, FilterPipe, OrderByPositionPipe],
+  imports: [
+    RouterOutlet,
+    CommonModule,
+   
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
   title = 'portfolio';
+  platform = inject(Platform);
+  isMobile = this.platform.ANDROID || this.platform.IOS;
 
-  // items = [
-  //   { title: 'Page 1', content: 'Content of Page 1' },
-  //   { title: 'Page 2', content: 'Content of Page 2' },
-  //   { title: 'Page 3', content: 'Content of Page 3' },
-  //   { title: 'Page 1', content: 'Content of Page 1' },
-  //   { title: 'Page 2', content: 'Content of Page 2' },
-  //   { title: 'Page 3', content: 'Content of Page 3' },
-  // ];
   currentIndex = 0;
 
   nextSlide() {
@@ -40,109 +38,93 @@ export class AppComponent {
     this.currentIndex = index;
   }
 
-  currentDisplay: number = 1; // Começa pelo display1
-isScrolling: boolean = false; // Flag para controlar o debounce
-scrollDelay: number = 1500; // Tempo de espera (1.5 segundos)
-touchStartY: number = 0; // Posição Y do toque inicial
+  currentDisplay: number = 1;
+  isScrolling: boolean = false;
+  scrollDelay: number = 1500;
+  touchStartY: number = 0;
 
-@HostListener('window:wheel', ['$event'])
-onScroll(event: WheelEvent) {
-  if (!this.isScrolling) {
-    this.isScrolling = true;
+  @HostListener('window:wheel', ['$event'])
+  onScroll(event: WheelEvent) {
+    if (!this.isScrolling) {
+      this.isScrolling = true;
 
-    if (event.deltaY > 0) {
-      // Rolando para baixo
-      this.nextDisplay();
-    } else {
-      // Rolando para cima
-      this.prevDisplay();
-    }
-
-    // Define o timeout para resetar a flag após o tempo especificado
-    setTimeout(() => {
-      this.isScrolling = false;
-    }, this.scrollDelay);
-  }
-}
-
-touchStartX: number = 0; // Posição X do toque inicial
-
-// Detecta quando o toque começa
-@HostListener('window:touchstart', ['$event'])
-onTouchStart(event: TouchEvent) {
-  this.touchStartX = event.touches[0].clientX; // Armazena a posição X inicial do toque
-  this.touchStartY = event.touches[0].clientY; // Armazena a posição Y inicial do toque
-}
-
-// Detecta quando o toque termina e a direção do movimento
-@HostListener('window:touchend', ['$event'])
-onTouchEnd(event: TouchEvent) {
-  const touchEndX = event.changedTouches[0].clientX; // Posição X do toque final
-  const touchEndY = event.changedTouches[0].clientY; // Posição Y do toque final
-  const deltaX = this.touchStartX - touchEndX; // Diferença no eixo X
-  const deltaY = this.touchStartY - touchEndY; // Diferença no eixo Y
-
-  if (!this.isScrolling) {
-    this.isScrolling = true;
-
-    // Determina se o movimento é principalmente horizontal ou vertical
-    if (Math.abs(deltaX) > Math.abs(deltaY)) {
-      // Movimento horizontal
-      if (deltaX > 50) {
-        // Deslizando para a esquerda
+      if (event.deltaY > 0) {
         this.nextDisplay();
-      } else if (deltaX < -50) {
-        // Deslizando para a direita
+      } else {
         this.prevDisplay();
       }
-    } else {
-      // Movimento vertical
-      if (deltaY > 50) {
-        // Deslizando para cima (scroll para baixo)
-        this.nextDisplay();
-      } else if (deltaY < -50) {
-        // Deslizando para baixo (scroll para cima)
-        this.prevDisplay();
-      }
-    }
-
-    // Define o timeout para resetar a flag após o tempo especificado
-    setTimeout(() => {
-      this.isScrolling = false;
-    }, this.scrollDelay);
-  }
-}
-
-@HostListener('window:touchmove', ['$event'])
-onTouchMove(event: TouchEvent) {
-  // Verifica se está no topo da página ou rolando
-  if (window.scrollY === 0 && event.touches[0].clientY > this.touchStartY) {
-    event.preventDefault(); // Impede o comportamento padrão do navegador (reload)
-  }
-}
-
-nextDisplay() {
-  if (this.currentDisplay < 4) {
-    this.currentDisplay++;
-  } 
-}
-
-prevDisplay() {
-  if (this.currentDisplay > 1) {
-    if (this.currentDisplay === 4) {
-      this.currentDisplay = 5;
       setTimeout(() => {
-        this.currentDisplay = 3;
-      }, 1500);
-    } else {
-      this.currentDisplay--;
-    } 
-  } 
-}
+        this.isScrolling = false;
+      }, this.scrollDelay);
+    }
+  }
 
-goToDisplay(displayNumber: number) {
-  this.currentDisplay = displayNumber; // Altera para o display correspondente
-}
+  touchStartX: number = 0;
+
+  @HostListener('window:touchstart', ['$event'])
+  onTouchStart(event: TouchEvent) {
+    this.touchStartX = event.touches[0].clientX;
+    this.touchStartY = event.touches[0].clientY;
+  }
+
+  @HostListener('window:touchend', ['$event'])
+  onTouchEnd(event: TouchEvent) {
+    const touchEndX = event.changedTouches[0].clientX;
+    const touchEndY = event.changedTouches[0].clientY;
+    const deltaX = this.touchStartX - touchEndX;
+    const deltaY = this.touchStartY - touchEndY;
+
+    if (!this.isScrolling) {
+      this.isScrolling = true;
+
+      if (Math.abs(deltaX) > Math.abs(deltaY)) {
+        if (deltaX > 50) {
+          this.nextDisplay();
+        } else if (deltaX < -50) {
+          this.prevDisplay();
+        }
+      } else {
+        if (deltaY > 50) {
+          this.nextDisplay();
+        } else if (deltaY < -50) {
+          this.prevDisplay();
+        }
+      }
+      setTimeout(() => {
+        this.isScrolling = false;
+      }, this.scrollDelay);
+    }
+  }
+
+  @HostListener('window:touchmove', ['$event'])
+  onTouchMove(event: TouchEvent) {
+    if (window.scrollY === 0 && event.touches[0].clientY > this.touchStartY) {
+      event.preventDefault();
+    }
+  }
+
+  nextDisplay() {
+    if (this.currentDisplay < 4) {
+      this.currentDisplay++;
+    }
+  }
+
+  prevDisplay() {
+    if (this.currentDisplay > 1) {
+      if (this.currentDisplay === 4) {
+        this.currentDisplay = 5;
+        setTimeout(() => {
+          this.currentDisplay = 3;
+        }, 1500);
+      } else {
+        this.currentDisplay--;
+      }
+    }
+  }
+
+  goToDisplay(displayNumber: number) {
+    this.currentDisplay = displayNumber;
+  }
 
   text = '<Jordan Borges/>';
   displayedText = '';
@@ -157,7 +139,7 @@ goToDisplay(displayNumber: number) {
     if (this.index < this.text.length) {
       this.displayedText += this.text.charAt(this.index);
       this.index++;
-      setTimeout(() => this.type(), 100); // Ajuste a velocidade da digitação
+      setTimeout(() => this.type(), 100);
     }
   }
 
@@ -166,31 +148,38 @@ goToDisplay(displayNumber: number) {
     link.click();
   }
 
-
-  items = [    
-    { src: 'assets/hidden-item1.jpg', alt: 'Hidden Item 1', position: 'hidden' },
-    { src: 'assets/hidden-item2.jpg', alt: 'Hidden Item 2', position: 'hidden' },
-    { src: 'assets/left-item.jpg', alt: 'Left Item', position: 'left' },
-    { src: 'assets/center-item.jpg', alt: 'Center Item', position: 'center' },
-    { src: 'assets/right-item.jpg', alt: 'Right Item', position: 'right' },
+  items = [
+    {
+      src: 'assets/a (1).jpg',
+      alt: 'Hidden Item 1',
+      position: 'hidden',
+    },
+    {
+      src: 'assets/a (2).jpg',
+      alt: 'Hidden Item 2',
+      position: 'hidden',
+    },
+    { src: 'assets/a (3).jpg', alt: 'Left Item', position: 'left' },
+    { src: 'assets/a (4).jpg', alt: 'Center Item', position: 'center' },
+    { src: 'assets/a (5).jpg', alt: 'Right Item', position: 'right' },
   ];
-  
+
   rotateRight() {
-    const lastItem = this.items.pop(); // Remove o último item
+    const lastItem = this.items.pop();
     if (lastItem) {
-      this.items.unshift(lastItem); // Adiciona o item ao início do array
-      this.updatePositions(); // Atualiza as posições
+      this.items.unshift(lastItem);
+      this.updatePositions();
     }
   }
-  
+
   rotateLeft() {
-    const firstItem = this.items.shift(); // Remove o primeiro item
+    const firstItem = this.items.shift();
     if (firstItem) {
-      this.items.push(firstItem); // Adiciona o item ao final do array
-      this.updatePositions(); // Atualiza as posições
+      this.items.push(firstItem);
+      this.updatePositions();
     }
   }
-  
+
   updatePositions() {
     this.items.forEach((item, index) => {
       if (index === 0) {
@@ -207,12 +196,12 @@ goToDisplay(displayNumber: number) {
 
   handleClick(position: string) {
     if (position === 'left') {
-      this.rotateRight(); // Gira os itens para a direita
+      this.rotateRight();
     } else if (position === 'right') {
-      this.rotateLeft(); // Gira os itens para a esquerda
+      this.rotateLeft();
     }
   }
-
+  
   sortItems() {
     const priorityOrder = ['left', 'center', 'right', 'hidden'];
     this.items.sort((a, b) => {
@@ -221,7 +210,4 @@ goToDisplay(displayNumber: number) {
       );
     });
   }
-  
 }
-
-
