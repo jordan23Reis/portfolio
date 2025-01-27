@@ -101,6 +101,9 @@ export class AppComponent {
     if (this.currentDisplay < 4) {
       this.currentDisplay++;
     }
+    if (this.currentDisplay === 4) {
+      this.handleClick('right')
+    }
   }
 
   prevDisplay() {

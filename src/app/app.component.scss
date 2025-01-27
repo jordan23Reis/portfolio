@@ -365,14 +365,13 @@ button:disabled {
 
   .display1,
   .display2,
-  .display3,
-  .display4 {
+  .display3 {
     width: 100%; 
   }
 
   .display1.visible,
   .display2.visible,
-  .display3.visible .display4.visible .display4.hiding {
+  .display3.visible  {
     width: 100%; 
   }
 
