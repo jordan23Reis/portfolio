@@ -4,7 +4,7 @@ html, body {
     margin: 0;
     padding: 0;
     height: 100%;
-    overscroll-behavior-y: contain; /* Evita pull-to-refresh */
+    overscroll-behavior-y: auto; /* Evita pull-to-refresh */
 }
 
 main {
