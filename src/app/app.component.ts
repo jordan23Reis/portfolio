@@ -3,15 +3,10 @@ import { Component, HostListener, inject, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Platform } from '@angular/cdk/platform';
 
-
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [
-    RouterOutlet,
-    CommonModule,
-   
-  ],
+  imports: [RouterOutlet, CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
@@ -42,6 +37,7 @@ export class AppComponent {
   isScrolling: boolean = false;
   scrollDelay: number = 1500;
   touchStartY: number = 0;
+  touchStartX: number = 0;
 
   @HostListener('window:wheel', ['$event'])
   onScroll(event: WheelEvent) {
@@ -58,8 +54,6 @@ export class AppComponent {
       }, this.scrollDelay);
     }
   }
-
-  touchStartX: number = 0;
 
   @HostListener('window:touchstart', ['$event'])
   onTouchStart(event: TouchEvent) {
@@ -110,6 +104,7 @@ export class AppComponent {
   }
 
   prevDisplay() {
+    if (this.isBlock === true) return
     if (this.currentDisplay > 1) {
       if (this.currentDisplay === 4) {
         this.currentDisplay = 5;
@@ -165,15 +160,16 @@ export class AppComponent {
   ];
 
   handleClick(position: string) {
-  const index = this.items.findIndex(item => item.position === position);
-  this.items.forEach((item, i) => {
-    if (i === index) item.position = 'center';
-    else if (i === (index + 1) % this.items.length) item.position = 'right';
-    else if (i === (index - 1 + this.items.length) % this.items.length) item.position = 'left';
-    else item.position = 'hidden';
-  });
-}
-  
+    const index = this.items.findIndex((item) => item.position === position);
+    this.items.forEach((item, i) => {
+      if (i === index) item.position = 'center';
+      else if (i === (index + 1) % this.items.length) item.position = 'right';
+      else if (i === (index - 1 + this.items.length) % this.items.length)
+        item.position = 'left';
+      else item.position = 'hidden';
+    });
+  }
+
   sortItems() {
     const priorityOrder = ['left', 'center', 'right', 'hidden'];
     this.items.sort((a, b) => {
@@ -183,6 +179,27 @@ export class AppComponent {
     });
   }
 
+  isOpenInfo: number = 1;
+  isBlock: boolean = false;
+  selectedItem: any = null;
 
-  
+  openInfo(item: any): void {
+    if (this.isOpenInfo === 2) {
+      this.closeInfo();
+    }
+    if (this.isBlock === true) return;
+    this.selectedItem = item;
+    this.isOpenInfo = 2;
+    this.isBlock = true;
+  }
+
+  closeInfo(): void {
+    if (this.isOpenInfo !== 2) return;
+    this.isOpenInfo = 3;
+    setTimeout(() => {
+      this.isOpenInfo = 1;
+      this.selectedItem = null;
+      this.isBlock = false;
+    }, 1500);
+  }
 }

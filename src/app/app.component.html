@@ -265,21 +265,26 @@
       }"
     >
       <div class="displayContent">
-        <span (click)="prevDisplay()" class="closeDisplay">X</span>
-        <h1 style="position: absolute; top: 5px">Projetos</h1>
+  
+        <h1 style="position: relative; top: 2%;; width: 60%; align-self: center; justify-self: center;">Projetos</h1>
+
+        <div style="flex: 1 1 0;"></div>
 
         <div class="carousel">
-          <div 
-            class="carousel-item" 
-            *ngFor="let item of items" 
+          <div
+            class="carousel-item"
+            *ngFor="let item of items"
             [ngClass]="item.position"
-            (click)="handleClick(item.position)">
-            
-            <img [src]="item.src" [alt]="item.alt || 'Carousel Item'">
-            
-            <div class="hover-indicator" [ngClass]="item.position">
+            (click)="handleClick(item.position)"
+          >
+            <img [src]="item.src" [alt]="item.alt || 'Carousel Item'" />
+
+            <div (click)="item.position === 'center' ? openInfo(item) : null" class="hover-indicator" [ngClass]="item.position">
               <ng-container *ngIf="item.position === 'center'">
                 <span>Abrir</span>
+                <span style="position: absolute; bottom: 10px">{{
+                  item.alt
+                }}</span>
               </ng-container>
               <ng-container *ngIf="item.position === 'left'">
                 <div class="indicatorLeft"></div>
@@ -290,6 +295,21 @@
             </div>
           </div>
         </div>
+
+        <div style="flex: 1 1 0;"></div>
+
+        <div
+          class="openInfo"
+          [ngClass]="{
+            visible: isOpenInfo === 2,
+            hidden: isOpenInfo === 1,
+            hiding: isOpenInfo === 3
+          }"
+        >
+      <span (click)="closeInfo()" class="closeInfoOverlay">X</span>
+        <h1 style="position: relative; top: 5px; width: 60%; align-self: center; justify-self: center;">{{selectedItem?.alt}}</h1>
+      </div>
+
         
       </div>
     </div>
