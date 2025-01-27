@@ -104,7 +104,7 @@ export class AppComponent {
   }
 
   prevDisplay() {
-    if (this.isBlock === true) return
+    // if (this.isBlock === true) return
     if (this.currentDisplay > 1) {
       if (this.currentDisplay === 4) {
         this.currentDisplay = 5;
