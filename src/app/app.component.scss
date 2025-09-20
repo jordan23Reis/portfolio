@@ -116,7 +116,6 @@ main {
 }
 
 .welcome-text {
-  margin-left: 15px;
   opacity: 1; 
   transform: translateY(0); 
 }
@@ -328,7 +327,7 @@ button:disabled {
 }
 
 @media (min-width: 1000px) {
-  .display2,
+  .display2, .contentItem,
   .display2.visible {
     max-width: 60%;
   }
@@ -346,7 +345,7 @@ button:disabled {
 
   .display1,
   .display2,
-  .display3 {
+  .display3, .contentItem  {
     width: 80%; 
   }
 
@@ -365,7 +364,7 @@ button:disabled {
 
   .display1,
   .display2,
-  .display3 {
+  .display3, .contentItem  {
     width: 100%; 
   }
 
@@ -390,7 +389,7 @@ button:disabled {
   .display1,
   .display2,
   .display3,
-  .display4 {
+  .display4  {
     width: 100%; 
     h1 {
       font-size: 2.5rem;
@@ -401,6 +400,10 @@ button:disabled {
     #typing-effect {
       font-size: 2.5rem;
     }
+  }
+
+  .contentItem {
+    width: 100%; 
   }
 
   .display1.visible,
@@ -439,7 +442,7 @@ button:disabled {
   .display1,
   .display2,
   .display3,
-  .display4 {
+  .display4  {
     width: 100%; 
     h1 {
       font-size: 2.5rem;
@@ -451,6 +454,11 @@ button:disabled {
       font-size: 2.2rem;
     }
   }
+
+  .contentItem {
+    width: 100%; 
+  }
+
 
   .display1.visible,
   .display2.visible,
@@ -833,7 +841,6 @@ $animationSpeed: 40s;
   }
 }
 
-
 .openInfo {
   position: fixed; 
   top: 0; 
@@ -841,6 +848,7 @@ $animationSpeed: 40s;
   right: 0;
   bottom: 0;
   background-color: white; 
+  will-change: transform, opacity;
   transition: transform 1s ease-in-out, opacity 0.5s ease-in-out; 
   z-index: 2000; 
   transform: translateY(100%); 
@@ -864,4 +872,119 @@ $animationSpeed: 40s;
   opacity: 1; 
   visibility: visible;
   transform: translateY(100%); 
+}
+
+.contentItem {
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  background-color: rgb(0, 0, 0, 0.4);
+  width: 60%;
+  height: 100px;
+  margin-top: 25px;
+  border-radius: 10px;
+  padding: 15px;
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 7px;
+  }
+  p {
+    font-size: 1.5rem;
+    margin-bottom: 3px;
+  }
+}
+
+
+
+
+.gallery {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  height: 300px;
+  perspective: 400px; 
+}
+
+.gallery-item {
+  position: absolute;
+  width: 300px;
+  height: 150px;
+  margin-top: 20px;
+  transition: transform 0.8s ease, opacity 0.8s ease,  width 0.3s ease, height 0.3s ease;
+  transform-style: preserve-3d;
+  opacity: 0.5; 
+  cursor: pointer;
+}
+
+.gallery-item img {
+  border-radius: 10px;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease, box-shadow 0.8s ease;
+}
+
+.gallery-item.center {
+  transform: translateZ(200px); 
+  opacity: 1; 
+  z-index: 3; 
+  span {
+    font-family: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI",
+  Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+  "Segoe UI Symbol";
+  }
+}
+
+.gallery-item.left {
+  transform: translateX(300px) rotateX(0deg) rotateY(-160deg) rotateZ(0deg) translateZ(-100px); 
+  z-index: 2; 
+}
+
+.gallery-item.right {
+  transform: translateX(-300px) rotateX(0deg) rotateY(160deg) rotateZ(0deg) translateZ(-100px); 
+  z-index: 2; 
+}
+
+.gallery-item.hidden {
+  transform: translateZ(-500px); 
+  opacity: 0; 
+  pointer-events: none; 
+}
+
+.gallery-item:hover img {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transform: scale(1.05);
+}
+
+.gallery-item:hover .hover-indicator {
+  display: flex;
+}
+
+
+.project-btn-icon {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: rgb(100, 100, 100);
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.project-btn-icon:hover {
+  color: rgb(50, 50, 50);
+  transform: scale(1.1);
+}
+
+.project-btn-icon svg path {
+  fill: currentColor;
+}
+
+.project-btn-disabled {
+  opacity: 0.4;
+  filter: grayscale(100%);
+  cursor: not-allowed;
+  pointer-events: none;
 }

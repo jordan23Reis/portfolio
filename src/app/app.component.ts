@@ -102,7 +102,7 @@ export class AppComponent {
       this.currentDisplay++;
     }
     if (this.currentDisplay === 4) {
-      this.handleClick('right')
+      this.handleClick('right');
     }
   }
 
@@ -148,18 +148,50 @@ export class AppComponent {
 
   items = [
     {
-      src: 'assets/a (1).jpg',
-      alt: 'Hidden Item 1',
+      src: 'https://api.images.cat/450/600?1',
+      alt: 'Item 1',
       position: 'hidden',
+      imgs: ['assets/a (1).jpg', 'assets/a (2).jpg', 'assets/a (3).jpg'],
+      descrition: '',
+      link: '',
+      git: ''
     },
     {
-      src: 'assets/a (2).jpg',
-      alt: 'Hidden Item 2',
+      src: 'https://api.images.cat/450/600?2',
+      alt: 'Item 2',
       position: 'hidden',
+      imgs: ['assets/a (1).jpg', 'assets/a (2).jpg', 'assets/a (3).jpg'],
+      descrition: '',
+      link: '',
+      git: ''
     },
-    { src: 'assets/a (3).jpg', alt: 'Left Item', position: 'left' },
-    { src: 'assets/a (4).jpg', alt: 'Center Item', position: 'center' },
-    { src: 'assets/a (5).jpg', alt: 'Right Item', position: 'right' },
+    {
+      src: 'https://api.images.cat/450/600?3',
+      alt: 'Item 3',
+      position: 'left',
+      imgs: ['assets/a (1).jpg', 'assets/a (2).jpg', 'assets/a (3).jpg'],
+      descrition: '',
+      link: '',
+      git: ''
+    },
+    {
+      src: 'https://api.images.cat/450/600?4',
+      alt: 'Agroloc',
+      position: 'center',
+      imgs: ['assets/a (1).jpg', 'assets/a (2).jpg', 'assets/a (3).jpg'],
+      descrition: 'Uma plataforma digital que facilita o aluguel de maquinários agrícolas, conectando proprietários e produtores rurais de forma prática e eficiente.',
+      link: '',
+      git: 'https://github.com/jordan23Reis/agroloc'
+    },
+    {
+      src: 'https://api.images.cat/450/600?5',
+      alt: 'Item 4',
+      position: 'right',
+      imgs: ['assets/a (1).jpg', 'assets/a (2).jpg', 'assets/a (3).jpg'],
+      descrition: '',
+      link: '',
+      git: ''
+    },
   ];
 
   handleClick(position: string) {
@@ -205,4 +237,10 @@ export class AppComponent {
       this.isBlock = false;
     }, 1500);
   }
+
+  abrirLink(link: string | undefined): void {
+  if (link) {
+    window.open(link, '_blank');
+  }
+}
 }
